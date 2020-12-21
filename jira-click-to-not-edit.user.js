@@ -1,6 +1,7 @@
 // ==UserScript==
 // @name Click to Not Edit
 // @match *://*.atlassian.net/*
+// @license ISC
 // ==/UserScript==
 //
 // This is supposed to disable click-to-edit in Jira unless ctrl or cmd is held.
