@@ -8,7 +8,7 @@
 
 document.addEventListener('click',
   ((event)=>{
-    if (event.cmdKey || event.metaKey || event.ctrlKey){
+    if (event.metaKey || event.ctrlKey){
       return;  // allow normal click-to-edit
     }
     var e = event.target;
