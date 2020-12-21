@@ -1,6 +1,7 @@
 // ==UserScript==
 // @name Click to Not Edit
 // @match *://*.atlassian.net/*
+// @run-at document-start
 // @license ISC
 // ==/UserScript==
 //
