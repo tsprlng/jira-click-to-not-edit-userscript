@@ -10,9 +10,12 @@
 document.addEventListener('click',
   ((event)=>{
     if (event.metaKey || event.ctrlKey){
-      return;  // allow normal click-to-edit
+      return;  // allow normal click-to-edit when key is held
     }
     var e = event.target;
+    if (e.tagName=='A'){
+      return;  // allow normal click on normal hyperlinks
+    }
     while (e != document){
       var aa = e.attributes;
       for (var i=0; i<aa.length; ++i){
