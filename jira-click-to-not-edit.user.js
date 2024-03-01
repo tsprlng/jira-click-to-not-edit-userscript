@@ -5,7 +5,8 @@
 // @license ISC
 // ==/UserScript==
 //
-// This is supposed to disable click-to-edit in Jira unless ctrl or cmd is held.
+// This is supposed to disable click-to-edit in the description field in Jira unless ctrl or cmd is held.
+// The behavior of click on other places is preserved.
 
 document.addEventListener('click',
   ((event)=>{
@@ -13,9 +14,15 @@ document.addEventListener('click',
       return;  // allow normal click-to-edit when key is held
     }
     var e = event.target;
-    if (e.tagName=='A'){
-      return;  // allow normal click on normal hyperlinks
+    var is_description = false;
+    for (let n = e; n.parentNode; n = n.parentNode) {
+      // Check if it inside the description block
+      if (n.className === 'ak-renderer-document') {
+          is_description = true;
+          break;
+      }
     }
+    if (!is_description) return;
     while (e != document){
       var aa = e.attributes;
       for (var i=0; i<aa.length; ++i){
